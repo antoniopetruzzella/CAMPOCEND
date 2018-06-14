@@ -20,7 +20,7 @@ public class terza_stanza extends AppCompatActivity implements SurfaceHolder.Cal
     private MediaPlayer antoVideoPlayer,currentMediaPlaying,audioguida1,audioguida2,audioguida3;
     private SurfaceHolder holder;
     private SurfaceView surface;
-    private ImageButton videoplaybtn,gpplaybtn,gppausebtn,palazzobalbibtn,lacollezionebtn,videointrobtn;
+    private ImageButton videoplaybtn,gpplaybtn,gppausebtn,palazzobalbibtn,lacollezionebtn,videointrobtn,audiostop1,audiostop2,audiostop3;
     private ImageView surfaceview;
     private SeekBar timeline;
     private TextView guardailvideo,ascoltaaudio,ag1,ag2,ag3;
@@ -40,6 +40,9 @@ public class terza_stanza extends AppCompatActivity implements SurfaceHolder.Cal
         ag1=(TextView)findViewById(R.id.ag1);
         ag2=(TextView)findViewById(R.id.ag2);
         ag3=(TextView)findViewById(R.id.ag3);
+        audiostop1=(ImageButton)findViewById(R.id.audiostop1);
+        audiostop2=(ImageButton)findViewById(R.id.audiostop2);
+        audiostop3=(ImageButton)findViewById(R.id.audiostop3);
         videoplaybtn.setOnClickListener(this);
         gpplaybtn.setOnClickListener(this);
         gppausebtn.setOnClickListener(this);
@@ -59,9 +62,9 @@ public class terza_stanza extends AppCompatActivity implements SurfaceHolder.Cal
         ascoltaaudio=(TextView)findViewById(R.id.ascoltaaudio);
         guardailvideo.setTypeface(type);
         ascoltaaudio.setTypeface(type);
-        audioguida1=MediaPlayer.create(this, R.raw.audioguida1);
-        audioguida2=MediaPlayer.create(this, R.raw.audioguida2);
-        audioguida3=MediaPlayer.create(this, R.raw.audioguida3);
+        audioguida1=MediaPlayer.create(this, R.raw.kalimba);
+        audioguida2=MediaPlayer.create(this, R.raw.kalimba);
+        audioguida3=MediaPlayer.create(this, R.raw.kalimba);
         handler.post(runnable);
     }
 
@@ -133,9 +136,11 @@ public class terza_stanza extends AppCompatActivity implements SurfaceHolder.Cal
                 }
                 break;
             case R.id.ag1:
-                timeline.setMax((audioguida1.getDuration()));
-                audioguida1.start();
-                videoplaybtn.setVisibility(View.VISIBLE);
+                if(audioguida1!=null) {
+                    timeline.setMax((audioguida1.getDuration()));
+                    audioguida1.start();
+                    videoplaybtn.setVisibility(View.VISIBLE);
+                }
                 break;
             case R.id.ag2:
                 timeline.setMax((audioguida2.getDuration()));
@@ -174,7 +179,14 @@ public class terza_stanza extends AppCompatActivity implements SurfaceHolder.Cal
         public void run( )
         {
 
+
             try {
+
+                audiostop1.setImageResource(R.drawable.audiostop);
+                audiostop2.setImageResource(R.drawable.audiostop);
+                audiostop3.setImageResource(R.drawable.audiostop);
+
+
                 if (antoVideoPlayer != null) {
                     if (antoVideoPlayer.isPlaying()) {
                         currentMediaPlaying=antoVideoPlayer;
@@ -183,9 +195,11 @@ public class terza_stanza extends AppCompatActivity implements SurfaceHolder.Cal
                 }
 
                 if (audioguida1 != null) {
+
                     if (audioguida1.isPlaying()) {
                         currentMediaPlaying=audioguida1;
                         timeline.setProgress(audioguida1.getCurrentPosition());
+                        audiostop1.setImageResource(R.drawable.audioplay);
                     }
                 }
 
@@ -193,6 +207,7 @@ public class terza_stanza extends AppCompatActivity implements SurfaceHolder.Cal
                     if (audioguida2.isPlaying()) {
                         currentMediaPlaying=audioguida2;
                         timeline.setProgress(audioguida2.getCurrentPosition());
+                        audiostop2.setImageResource(R.drawable.audioplay);
                     }
                 }
 
@@ -200,6 +215,7 @@ public class terza_stanza extends AppCompatActivity implements SurfaceHolder.Cal
                     if (audioguida3.isPlaying()) {
                         currentMediaPlaying=audioguida3;
                         timeline.setProgress(audioguida3.getCurrentPosition());
+                        audiostop3.setImageResource(R.drawable.audioplay);
                     }
                 }
 

@@ -61,11 +61,11 @@
         android:background="@drawable/back"/>
 
     <ImageButton
-        android:layout_width="50px"
-        android:layout_height="50px"
+        android:layout_width="70px"
+        android:layout_height="70px"
         android:id="@+id/audiostop1"
         android:src="@drawable/playgrey"
-        android:layout_marginTop="985px"
+        android:layout_marginTop="978px"
         android:layout_marginLeft="300px"
         android:background="@null"/>
 
@@ -82,11 +82,11 @@
         android:textAlignment="center"
         android:background="@drawable/back"/>
     <ImageButton
-        android:layout_width="50px"
-        android:layout_height="50px"
+        android:layout_width="70px"
+        android:layout_height="70px"
         android:id="@+id/audiostop4"
         android:src="@drawable/playgrey"
-        android:layout_marginTop="1285px"
+        android:layout_marginTop="1271px"
         android:layout_marginLeft="300px"
         android:background="@null"/>
     <TextView
@@ -102,11 +102,11 @@
         android:textAlignment="center"
         android:background="@drawable/back"/>
     <ImageButton
-        android:layout_width="50px"
-        android:layout_height="50px"
+        android:layout_width="70px"
+        android:layout_height="70px"
         android:id="@+id/audiostop5"
         android:src="@drawable/playgrey"
-        android:layout_marginTop="1385px"
+        android:layout_marginTop="1378px"
         android:layout_marginLeft="300px"
         android:background="@null"/>
     <TextView
@@ -122,11 +122,11 @@
         android:textAlignment="center"
         android:background="@drawable/back"/>
     <ImageButton
-        android:layout_width="50px"
-        android:layout_height="50px"
+        android:layout_width="70px"
+        android:layout_height="70px"
         android:id="@+id/audiostop2"
         android:src="@drawable/playgrey"
-        android:layout_marginTop="1085px"
+        android:layout_marginTop="1078px"
         android:layout_marginLeft="300px"
         android:background="@null"/>
 
@@ -143,11 +143,11 @@
         android:textAlignment="center"
         android:background="@drawable/back"/>
     <ImageButton
-        android:layout_width="50px"
-        android:layout_height="50px"
+        android:layout_width="70px"
+        android:layout_height="70px"
         android:id="@+id/audiostop3"
         android:src="@drawable/playgrey"
-        android:layout_marginTop="1185px"
+        android:layout_marginTop="1178px"
         android:layout_marginLeft="300px"
         android:background="@null"/>
 
