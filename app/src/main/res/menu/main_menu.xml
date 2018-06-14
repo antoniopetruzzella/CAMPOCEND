@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/palazzo_balbi"
+        android:icon="@drawable/stemma"
+        android:title="@string/menu_primo_item"/>
+    <item android:id="@+id/collezione"
+        android:icon="@drawable/stemma"
+        android:title="@string/menu_secondo_item" />
+    <item android:id="@+id/videos"
+        android:icon="@drawable/stemma"
+        android:title="@string/menu_terzo_item">
+        <menu xmlns:android="http://schemas.android.com/apk/res/android">
+            <item android:id="@+id/video01"
+                android:icon="@drawable/stemma"
+                android:title="Introduzione" />
+            <item android:id="@+id/video02"
+                android:icon="@drawable/stemma"
+                android:title="Angelo Cenderelli" />
+            <item android:id="@+id/video03"
+                android:icon="@drawable/stemma"
+                android:title="L'importanza delle Marionette" />
+            <item android:id="@+id/video04"
+                android:icon="@drawable/stemma"
+                android:title="Come attori veri" />
+            <item android:id="@+id/video05"
+                android:icon="@drawable/stemma"
+                android:title="Il mestiere del marionettista" />
+        </menu>
+    </item>
+</menu>

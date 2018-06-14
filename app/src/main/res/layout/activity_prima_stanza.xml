@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.android.ggallery.museodellemarionette.PrimaStanza">
+    <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:text="PRIMA STANZA"
+    android:textSize="30dp"/>
+    <Button
+        android:id="@+id/approfondimentibtn"
+        android:layout_width="200dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="350dp"
+        android:layout_marginTop="0dp"
+        android:text="APPROFONDIMENTI"/>
+    <SurfaceView
+        android:id="@+id/surfaceview"
+        android:layout_width="480dp"
+        android:layout_height="360dp"
+        android:layout_marginTop="100dp"
+        android:layout_centerHorizontal="true"/>
+    <ImageButton
+        android:id="@+id/videoplaybtn"
+        android:layout_width="42px"
+        android:layout_height="42px"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="500dp"
+        android:background="@null"
+        android:src="@drawable/play"/>
+
+    <Button
+        android:id="@+id/videopausebtn"
+        android:layout_width="120dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="500dp"
+        android:text="PAUSE"/>
+
+    <Button
+        android:id="@+id/kalimbaplaybtn"
+        android:layout_width="120dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="600dp"
+        android:text="PLAY"/>
+
+    <Button
+        android:id="@+id/kalimbapausebtn"
+        android:layout_width="120dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="600dp"
+        android:text="PAUSE"/>
+    <Button
+        android:id="@+id/maidplaybtn"
+        android:layout_width="120dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="700dp"
+        android:text="PLAY"/>
+
+    <Button
+        android:id="@+id/maidpausebtn"
+        android:layout_width="120dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="700dp"
+        android:text="PAUSE"/>
+
+    <SeekBar
+        android:id="@+id/timeline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="800dp"
+        android:layout_centerHorizontal="true"/>
+</RelativeLayout>

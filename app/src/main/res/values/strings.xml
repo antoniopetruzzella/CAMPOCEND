@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Museo delle Marionette</string>
+    <string name="menu_primo_item">Palazzo Balbi</string>
+    <string name="menu_secondo_item">La Collezione Angelo Cenderelli</string>
+    <string name="menu_terzo_item">I Video</string>
+    <string name="palazzo_balbi_testo">I Video</string>
+</resources>

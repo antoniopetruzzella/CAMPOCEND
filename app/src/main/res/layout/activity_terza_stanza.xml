@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.android.ggallery.museodellemarionette.terza_stanza">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Guarda il video"
+
+        android:id="@+id/guardailvideo"
+        android:layout_marginTop="280px"
+        android:layout_marginLeft="940px" />
+    <ImageView
+        android:layout_width="725dp"
+        android:layout_height="157dp"
+        android:id="@+id/ombra"
+        android:src="@drawable/ombra"
+
+        android:layout_marginTop="745px"
+
+        android:layout_marginLeft="0px" />
+    <SurfaceView
+        android:id="@+id/surfaceview"
+        android:layout_width="960px"
+        android:layout_height="540px"
+        android:layout_marginTop="330px"
+
+        android:layout_marginLeft="150px"/>
+
+    <ImageView
+        android:layout_width="960px"
+        android:layout_height="540px"
+        android:id="@+id/imageView3"
+        android:src="@drawable/surface_image"
+
+        android:layout_marginTop="330px"
+
+        android:layout_marginLeft="150px" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Ascolta l'audio"
+
+        android:id="@+id/ascoltaaudio"
+        android:layout_marginTop="920px"
+        android:layout_marginLeft="950px" />
+
+    <ImageButton
+        android:id="@+id/videoplaybtn"
+        android:layout_width="120px"
+        android:layout_height="120px"
+        android:layout_marginLeft="350dp"
+        android:layout_marginTop="350dp"
+        android:background="@null"
+        android:src="@drawable/play2"/>
+
+
+
+    <ImageView
+        android:layout_width="522px"
+        android:layout_height="210px"
+        android:id="@+id/logostanza3"
+        android:src="@drawable/logostanza3"
+        android:layout_marginTop="80px"
+        android:layout_marginLeft="600px"/>
+
+    <TextView
+    android:layout_width="1000px"
+        android:layout_height="@dimen/audioguide_banner_height"
+    android:textAppearance="?android:attr/textAppearanceLarge"
+    android:text="Audioguida 1"
+    android:textColor="@color/bright_foreground_material_light"
+    android:id="@+id/ag1"
+    android:layout_marginTop="960px"
+    android:layout_marginLeft="100px"
+    android:gravity="center"
+    android:textAlignment="center"
+    android:background="@drawable/back"/>
+    <ImageButton
+        android:layout_width="50px"
+        android:layout_height="50px"
+        android:id="@+id/audiostop1"
+        android:src="@drawable/audiostop"
+        android:layout_marginTop="985px"
+        android:layout_marginLeft="400px"
+        android:background="@null"/>
+
+    <TextView
+        android:layout_width="1000px"
+        android:layout_height="@dimen/audioguide_banner_height"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Audioguida 1"
+        android:textColor="@color/bright_foreground_material_light"
+        android:id="@+id/ag2"
+        android:layout_marginTop="1060px"
+        android:layout_marginLeft="100px"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:background="@drawable/back"/>
+    <ImageButton
+        android:layout_width="50px"
+        android:layout_height="50px"
+        android:id="@+id/audiostop2"
+        android:src="@drawable/audiostop"
+        android:layout_marginTop="1085px"
+        android:layout_marginLeft="400px"
+        android:background="@null"/>
+    <ImageView
+        android:layout_width="725dp"
+        android:layout_height="157dp"
+        android:id="@+id/ombra2"
+        android:src="@drawable/ombra"
+
+        android:layout_marginTop="1145px"
+
+        android:layout_marginLeft="0px" />
+    <TextView
+        android:layout_width="1000px"
+        android:layout_height="@dimen/audioguide_banner_height"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Audioguida 1"
+        android:textColor="@color/bright_foreground_material_light"
+        android:id="@+id/ag3"
+        android:layout_marginTop="1160px"
+        android:layout_marginLeft="100px"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:background="@drawable/back"/>
+    <ImageButton
+        android:layout_width="50px"
+        android:layout_height="50px"
+        android:id="@+id/audiostop3"
+        android:src="@drawable/audiostop"
+        android:layout_marginTop="1185px"
+        android:layout_marginLeft="400px"
+        android:background="@null"/>
+    <ImageView
+        android:layout_width="725dp"
+        android:layout_height="157dp"
+        android:id="@+id/ombra3"
+        android:src="@drawable/ombra"
+
+        android:layout_marginTop="1395px"
+
+        android:layout_marginLeft="0px" />
+
+    <TextView
+        android:layout_width="1000px"
+        android:layout_height="@dimen/audioguide_banner_height"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+
+        android:textColor="@color/bright_foreground_material_light"
+        android:id="@+id/seekbanner"
+        android:layout_marginTop="1400px"
+        android:layout_marginLeft="100px"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:background="@drawable/back"/>
+    <ImageButton
+        android:id="@+id/gpplaybtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="950px"
+        android:layout_marginTop="1450px"
+        android:background="@null"
+        android:src="@drawable/play3"/>
+
+    <ImageButton
+        android:id="@+id/gppausebtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="1000px"
+        android:layout_marginTop="1450px"
+        android:background="@null"
+        android:src="@drawable/pause3"/>
+
+
+
+    <SeekBar
+        android:id="@+id/timeline"
+        android:layout_width="900px"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1425px"
+        android:progressTint="#FDD207"
+        android:thumb="@drawable/thumb"
+        android:progressBackgroundTint="#BFBCB7"
+        android:layout_marginLeft="150px" />
+
+    <ImageButton
+        android:id="@+id/palazzobalbibtn"
+        android:layout_width="392px"
+        android:layout_height="@dimen/footer_menu_bar_height"
+        android:layout_marginLeft="0px"
+        android:background="@null"
+        android:src="@drawable/palazzobalbibtn2"
+        android:layout_marginTop="@dimen/footer_menu_bar_top" />
+    <ImageButton
+        android:id="@+id/lacollezionebtn"
+        android:layout_width="392px"
+        android:layout_height="@dimen/footer_menu_bar_height"
+        android:layout_marginLeft="393px"
+        android:background="@null"
+        android:src="@drawable/lacollezionebtn"
+        android:layout_marginTop="@dimen/footer_menu_bar_top" />
+    <ImageButton
+        android:id="@+id/videointrobtn"
+        android:layout_width="392px"
+        android:layout_height="@dimen/footer_menu_bar_height"
+        android:layout_marginLeft="786px"
+        android:background="@null"
+        android:src="@drawable/videointrobtn"
+        android:layout_marginTop="@dimen/footer_menu_bar_top" />
+
+
+    <ImageView
+        android:layout_width="1000dp"
+        android:layout_height="match_parent"
+        android:id="@+id/sipario"
+        android:src="@drawable/sipario"
+        android:paddingLeft="-600px" />
+
+    <ImageView
+        android:layout_width="875px"
+        android:layout_height="200px"
+        android:id="@+id/scrittamuseo"
+        android:src="@drawable/scrittamuseo"
+        android:layout_marginTop="0px"
+        android:paddingLeft="-100px"/>
+
+
+
+
+</FrameLayout>

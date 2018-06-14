@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.android.ggallery.museodellemarionette.terza_stanza">
+
+
+
+    <ImageView
+        android:layout_width="725dp"
+        android:layout_height="157dp"
+        android:id="@+id/ombra"
+        android:src="@drawable/ombra"
+
+        android:layout_marginTop="745px"
+
+        android:layout_marginLeft="0px" />
+    <SurfaceView
+        android:id="@+id/surfaceview"
+        android:layout_width="960px"
+        android:layout_height="540px"
+        android:layout_marginTop="330px"
+
+        android:layout_marginLeft="150px"/>
+
+    <ImageView
+        android:layout_width="960px"
+        android:layout_height="540px"
+        android:id="@+id/copertinaprimovideo"
+        android:src="@drawable/surface_image"
+
+        android:layout_marginTop="330px"
+
+        android:layout_marginLeft="150px" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Scegli il video"
+
+        android:id="@+id/ascoltaaudio"
+        android:layout_marginTop="920px"
+        android:layout_marginLeft="950px" />
+
+
+
+
+    <TextView
+        android:layout_width="1000px"
+        android:layout_height="@dimen/audioguide_banner_height"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Introduzione alla collezione"
+        android:textColor="@color/bright_foreground_material_light"
+        android:id="@+id/video1box"
+        android:layout_marginTop="960px"
+        android:layout_marginLeft="100px"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:background="@drawable/back"/>
+
+    <ImageButton
+        android:layout_width="50px"
+        android:layout_height="50px"
+        android:id="@+id/audiostop1"
+        android:src="@drawable/playgrey"
+        android:layout_marginTop="985px"
+        android:layout_marginLeft="300px"
+        android:background="@null"/>
+
+    <TextView
+        android:layout_width="1000px"
+        android:layout_height="@dimen/audioguide_banner_height"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Come attori veri"
+        android:textColor="@color/bright_foreground_material_light"
+        android:id="@+id/video4box"
+        android:layout_marginTop="1260px"
+        android:layout_marginLeft="100px"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:background="@drawable/back"/>
+    <ImageButton
+        android:layout_width="50px"
+        android:layout_height="50px"
+        android:id="@+id/audiostop4"
+        android:src="@drawable/playgrey"
+        android:layout_marginTop="1285px"
+        android:layout_marginLeft="300px"
+        android:background="@null"/>
+    <TextView
+        android:layout_width="1000px"
+        android:layout_height="@dimen/audioguide_banner_height"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Il mestiere del marionettista"
+        android:textColor="@color/bright_foreground_material_light"
+        android:id="@+id/video5box"
+        android:layout_marginTop="1360px"
+        android:layout_marginLeft="100px"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:background="@drawable/back"/>
+    <ImageButton
+        android:layout_width="50px"
+        android:layout_height="50px"
+        android:id="@+id/audiostop5"
+        android:src="@drawable/playgrey"
+        android:layout_marginTop="1385px"
+        android:layout_marginLeft="300px"
+        android:background="@null"/>
+    <TextView
+        android:layout_width="1000px"
+        android:layout_height="@dimen/audioguide_banner_height"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Chi era Angelo Cenderelli"
+        android:textColor="@color/bright_foreground_material_light"
+        android:id="@+id/video2box"
+        android:layout_marginTop="1060px"
+        android:layout_marginLeft="100px"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:background="@drawable/back"/>
+    <ImageButton
+        android:layout_width="50px"
+        android:layout_height="50px"
+        android:id="@+id/audiostop2"
+        android:src="@drawable/playgrey"
+        android:layout_marginTop="1085px"
+        android:layout_marginLeft="300px"
+        android:background="@null"/>
+
+    <TextView
+        android:layout_width="1000px"
+        android:layout_height="@dimen/audioguide_banner_height"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="L'importanza delle Marionette"
+        android:textColor="@color/bright_foreground_material_light"
+        android:id="@+id/video3box"
+        android:layout_marginTop="1160px"
+        android:layout_marginLeft="100px"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:background="@drawable/back"/>
+    <ImageButton
+        android:layout_width="50px"
+        android:layout_height="50px"
+        android:id="@+id/audiostop3"
+        android:src="@drawable/playgrey"
+        android:layout_marginTop="1185px"
+        android:layout_marginLeft="300px"
+        android:background="@null"/>
+
+
+    <TextView
+        android:layout_width="1000px"
+        android:layout_height="@dimen/audioguide_banner_height"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+
+        android:textColor="@color/bright_foreground_material_light"
+        android:id="@+id/seekbanner"
+        android:layout_marginTop="1460px"
+        android:layout_marginLeft="100px"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:background="@drawable/back"/>
+    <ImageButton
+        android:id="@+id/gpplaybtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="950px"
+        android:layout_marginTop="1500px"
+        android:background="@null"
+        android:src="@drawable/play3"/>
+
+    <ImageButton
+        android:id="@+id/gppausebtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="1000px"
+        android:layout_marginTop="1500px"
+        android:background="@null"
+        android:src="@drawable/pause3"/>
+
+
+
+    <SeekBar
+        android:id="@+id/timeline"
+        android:layout_width="900px"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1485px"
+        android:progressTint="#FDD207"
+        android:thumb="@drawable/thumb"
+        android:progressBackgroundTint="#BFBCB7"
+        android:layout_marginLeft="150px" />
+
+    <ImageButton
+        android:id="@+id/palazzobalbibtn"
+        android:layout_width="392px"
+        android:layout_height="@dimen/footer_menu_bar_height"
+        android:layout_marginLeft="0px"
+        android:background="@null"
+        android:src="@drawable/palazzobalbibtn2"
+        android:layout_marginTop="@dimen/footer_menu_bar_top" />
+    <ImageButton
+        android:id="@+id/lacollezionebtn"
+        android:layout_width="392px"
+        android:layout_height="@dimen/footer_menu_bar_height"
+        android:layout_marginLeft="393px"
+        android:background="@null"
+        android:src="@drawable/lacollezionebtn"
+        android:layout_marginTop="@dimen/footer_menu_bar_top" />
+
+
+
+    <ImageView
+        android:layout_width="1000dp"
+        android:layout_height="match_parent"
+        android:id="@+id/sipario"
+        android:src="@drawable/sipario"
+        android:paddingLeft="-600px" />
+
+    <ImageView
+        android:layout_width="875px"
+        android:layout_height="200px"
+        android:id="@+id/scrittamuseo"
+        android:src="@drawable/scrittamuseo"
+        android:layout_marginTop="0px"
+        android:paddingLeft="-100px"/>
+
+
+
+
+</FrameLayout>
