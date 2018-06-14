@@ -130,6 +130,15 @@ public class terza_stanza extends AppCompatActivity implements SurfaceHolder.Cal
                 }
                 break;
             case R.id.gpplaybtn:
+                if(audioguida2.isPlaying()) {
+                    audioguida2.pause();
+                }
+                if(audioguida3.isPlaying()) {
+                    audioguida3.pause();
+                }
+                if(audioguida1.isPlaying()) {
+                    audioguida1.pause();
+                }
                 currentMediaPlaying.start();
                 if(currentMediaPlaying==antoVideoPlayer) {
                     videoplaybtn.setVisibility(View.INVISIBLE);
@@ -138,17 +147,35 @@ public class terza_stanza extends AppCompatActivity implements SurfaceHolder.Cal
             case R.id.ag1:
                 if(audioguida1!=null) {
                     timeline.setMax((audioguida1.getDuration()));
+                    if(audioguida2.isPlaying()) {
+                        audioguida2.pause();
+                    }
+                    if(audioguida3.isPlaying()) {
+                        audioguida3.pause();
+                    }
                     audioguida1.start();
                     videoplaybtn.setVisibility(View.VISIBLE);
                 }
                 break;
             case R.id.ag2:
                 timeline.setMax((audioguida2.getDuration()));
+                if(audioguida1.isPlaying()) {
+                    audioguida1.pause();
+                }
+                if(audioguida3.isPlaying()) {
+                    audioguida3.pause();
+                }
                 audioguida2.start();
                 videoplaybtn.setVisibility(View.VISIBLE);
                 break;
             case R.id.ag3:
                 timeline.setMax((audioguida3.getDuration()));
+                if(audioguida2.isPlaying()) {
+                    audioguida2.pause();
+                }
+                if(audioguida1.isPlaying()) {
+                    audioguida1.pause();
+                }
                 audioguida3.start();
                 videoplaybtn.setVisibility(View.VISIBLE);
                 break;
