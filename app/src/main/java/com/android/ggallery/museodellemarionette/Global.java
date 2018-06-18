@@ -18,4 +18,16 @@ public class Global extends Application {
         NearestBeacon=nearestbeacon;
     }
 
+    Boolean inStaticActivity;
+
+    public Boolean getInStaticActivity(){
+
+        return inStaticActivity;
+    }
+
+    public void setInStaticActivity(Boolean _inStaticActivity){
+
+        inStaticActivity=_inStaticActivity;
+    }
+
 }

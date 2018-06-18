@@ -12,6 +12,8 @@ public class PalazzoBalbi extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_palazzo_balbi);
+        Global global=(Global)getApplicationContext();
+        global.setInStaticActivity(true);
         String indirizzo=getIntent().getStringExtra("indirizzo");
         wv = (WebView) findViewById(R.id.webView);
         wv.loadUrl("file:///android_asset/"+indirizzo);

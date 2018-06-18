@@ -56,7 +56,7 @@ private Intent palazzobalbiIntent,videoIntent;
         holder = surface.getHolder();
         holder.addCallback(this);
         kalimbaAudioPlayer=MediaPlayer.create(this,R.raw.kalimba);
-        maidAudioPlayer=MediaPlayer.create(this,R.raw.maid);
+        maidAudioPlayer=MediaPlayer.create(this,R.raw.kalimba);
 
         handler.post(runnable);
     }
@@ -89,7 +89,7 @@ private Intent palazzobalbiIntent,videoIntent;
     @Override
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
 
-        antoVideoPlayer=MediaPlayer.create(this, R.raw.anto);
+        antoVideoPlayer=MediaPlayer.create(this, R.raw.video1);
         antoVideoPlayer.setDisplay(holder);
 
     }

@@ -8,6 +8,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Handler;
 import android.os.PersistableBundle;
+import android.provider.Settings;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,9 +25,10 @@ public class MainActivity extends AppCompatActivity  {
     private int start_interval_ms=10000;
     private int actualRoom=-9999;
     private boolean copertina=false;
-    private Intent primaStanzaIntent,secondaStanzaIntent;
+    private Intent primaStanzaIntent,secondaStanzaIntent,terzaStanzaIntent,quartaStanzaIntent,quintaStanzaIntent;
     private static final int PERMISSION_REQUEST_COARSE_LOCATION = 1;
     private static final int PERMISSION_REQUEST_FINE_LOCATION = 1;
+
 
 
     @Override
@@ -34,6 +36,8 @@ public class MainActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, PERMISSION_REQUEST_COARSE_LOCATION);
+        Global global=(Global)getApplicationContext();
+        global.setInStaticActivity(false);
 
 
     }
@@ -77,6 +81,8 @@ public class MainActivity extends AppCompatActivity  {
         scanHandler.post(scanRunnable);
         primaStanzaIntent=new Intent(this, PrimaStanza.class);
         secondaStanzaIntent=new Intent(this, SecondaStanza.class);
+        terzaStanzaIntent=new Intent(this, terza_stanza.class);
+
     }
 
     @Override
@@ -99,7 +105,7 @@ public class MainActivity extends AppCompatActivity  {
         @Override
         public void run() {
             Global global=(Global)getApplicationContext();
-           if(global.getNearestBeacon()!=null) {
+           if(global.getNearestBeacon()!=null && global.getInStaticActivity()==false) {
                Log.i("ACTUAL UUID NEAREST", global.getNearestBeacon().getUuid());
                Log.i("ACTUAL MINOR NEAREST", global.getNearestBeacon().getMinor().toString());
                Log.i("ACTUAL MAJOR NEAREST", global.getNearestBeacon().getMajor().toString());
@@ -121,6 +127,9 @@ public class MainActivity extends AppCompatActivity  {
                 case 2:
                     startActivity(secondaStanzaIntent);
                     break;
+                case 3:
+                    startActivity(terzaStanzaIntent);
+                    break;
                 default:
                     break;
             }
@@ -128,7 +137,6 @@ public class MainActivity extends AppCompatActivity  {
     }
     public void onPostCreate(Bundle savedInstanceState,
                                 PersistableBundle persistentState){
-
 
 
     }

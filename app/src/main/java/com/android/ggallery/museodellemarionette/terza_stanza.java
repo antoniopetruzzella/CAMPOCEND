@@ -65,6 +65,8 @@ public class terza_stanza extends AppCompatActivity implements SurfaceHolder.Cal
         audioguida1=MediaPlayer.create(this, R.raw.kalimba);
         audioguida2=MediaPlayer.create(this, R.raw.kalimba);
         audioguida3=MediaPlayer.create(this, R.raw.kalimba);
+        Global global=(Global)getApplicationContext();
+        global.setInStaticActivity(true);
         handler.post(runnable);
     }
 
@@ -91,7 +93,9 @@ public class terza_stanza extends AppCompatActivity implements SurfaceHolder.Cal
     protected void onPause(){
 
         antoVideoPlayer.stop();
-        currentMediaPlaying.stop();
+        if(currentMediaPlaying!=null) {
+            currentMediaPlaying.stop();
+        }
         audioguida1.stop();
         audioguida2.stop();
         audioguida3.stop();
@@ -105,7 +109,9 @@ public class terza_stanza extends AppCompatActivity implements SurfaceHolder.Cal
 
         handler.removeCallbacks(runnable);
         antoVideoPlayer.release();
-        currentMediaPlaying.release();
+        if(currentMediaPlaying!=null) {
+            currentMediaPlaying.stop();
+        }
         audioguida1.release();
         audioguida2.release();
         audioguida3.release();
@@ -124,6 +130,8 @@ public class terza_stanza extends AppCompatActivity implements SurfaceHolder.Cal
         surfaceview.setVisibility(View.VISIBLE);
         videoplaybtn.setVisibility(View.VISIBLE);
         handler.post(runnable);
+        Global global=(Global)getApplicationContext();
+        global.setInStaticActivity(false);
         super.onResume();
     }
 
