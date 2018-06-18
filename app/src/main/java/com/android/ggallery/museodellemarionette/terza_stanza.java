@@ -90,25 +90,41 @@ public class terza_stanza extends AppCompatActivity implements SurfaceHolder.Cal
     @Override
     protected void onPause(){
 
-
+        antoVideoPlayer.stop();
+        currentMediaPlaying.stop();
+        audioguida1.stop();
+        audioguida2.stop();
+        audioguida3.stop();
         super.onPause();
+
 
     }
 
     @Override
     protected void onStop(){
 
-        super.onStop();
         handler.removeCallbacks(runnable);
-
         antoVideoPlayer.release();
+        currentMediaPlaying.release();
+        audioguida1.release();
+        audioguida2.release();
+        audioguida3.release();
+        super.onStop();
+
     }
 
     @Override
     protected void onResume(){
 
+        antoVideoPlayer=MediaPlayer.create(this, R.raw.sala03);
+        currentMediaPlaying=null;
+        audioguida1=MediaPlayer.create(this, R.raw.kalimba);
+        audioguida2=MediaPlayer.create(this, R.raw.kalimba);
+        audioguida3=MediaPlayer.create(this, R.raw.kalimba);
+        surfaceview.setVisibility(View.VISIBLE);
+        videoplaybtn.setVisibility(View.VISIBLE);
+        handler.post(runnable);
         super.onResume();
-
     }
 
     @Override
@@ -124,9 +140,13 @@ public class terza_stanza extends AppCompatActivity implements SurfaceHolder.Cal
                 break;
 
             case R.id.gppausebtn:
-                currentMediaPlaying.pause();
-                if(currentMediaPlaying==antoVideoPlayer) {
-                    videoplaybtn.setVisibility(View.VISIBLE);
+                if(currentMediaPlaying!=null) {
+                    currentMediaPlaying.pause();
+                }
+                if(currentMediaPlaying!=null) {
+                    if (currentMediaPlaying == antoVideoPlayer) {
+                        videoplaybtn.setVisibility(View.VISIBLE);
+                    }
                 }
                 break;
             case R.id.gpplaybtn:
@@ -139,9 +159,13 @@ public class terza_stanza extends AppCompatActivity implements SurfaceHolder.Cal
                 if(audioguida1.isPlaying()) {
                     audioguida1.pause();
                 }
-                currentMediaPlaying.start();
-                if(currentMediaPlaying==antoVideoPlayer) {
-                    videoplaybtn.setVisibility(View.INVISIBLE);
+                if(currentMediaPlaying!=null) {
+                    currentMediaPlaying.start();
+                }
+                if(currentMediaPlaying!=null) {
+                    if (currentMediaPlaying == antoVideoPlayer) {
+                        videoplaybtn.setVisibility(View.INVISIBLE);
+                    }
                 }
                 break;
             case R.id.ag1:

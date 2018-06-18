@@ -36,7 +36,7 @@
         android:layout_width="960px"
         android:layout_height="540px"
         android:id="@+id/imageView3"
-        android:src="@drawable/surface_image"
+        android:src="@drawable/sala3sw"
 
         android:layout_marginTop="330px"
 
