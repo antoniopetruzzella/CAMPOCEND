@@ -15,8 +15,7 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-
-public class SecondaStanza extends AppCompatActivity implements SurfaceHolder.Callback, View.OnClickListener{
+public class QuartaStanza extends AppCompatActivity implements SurfaceHolder.Callback, View.OnClickListener {
 
     private MediaPlayer antoVideoPlayer,currentMediaPlaying,audioguida1,audioguida2;
     private SurfaceHolder holder;
@@ -63,8 +62,8 @@ public class SecondaStanza extends AppCompatActivity implements SurfaceHolder.Ca
         ascoltaaudio=(TextView)findViewById(R.id.ascoltaaudio);
         guardailvideo.setTypeface(type);
         ascoltaaudio.setTypeface(type);
-        audioguida1=MediaPlayer.create(this, R.raw.sala02_01);
-        audioguida2=MediaPlayer.create(this, R.raw.sala02_02);
+        audioguida1=MediaPlayer.create(this, R.raw.sala04_01);
+        audioguida2=MediaPlayer.create(this, R.raw.sala04_02);
 
         Global global=(Global)getApplicationContext();
         global.setInStaticActivity(true);
@@ -125,8 +124,8 @@ public class SecondaStanza extends AppCompatActivity implements SurfaceHolder.Ca
 
         antoVideoPlayer=MediaPlayer.create(this, R.raw.sala03);
         currentMediaPlaying=null;
-        audioguida1=MediaPlayer.create(this, R.raw.sala02_01);
-        audioguida2=MediaPlayer.create(this, R.raw.sala02_02);
+        audioguida1=MediaPlayer.create(this, R.raw.sala04_01);
+        audioguida2=MediaPlayer.create(this, R.raw.sala04_02);
 
         surfaceview.setVisibility(View.VISIBLE);
         videoplaybtn.setVisibility(View.VISIBLE);

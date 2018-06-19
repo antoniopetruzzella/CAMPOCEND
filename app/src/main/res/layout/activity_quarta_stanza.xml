@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.android.ggallery.museodellemarionette.SecondaStanza">
+    tools:context="com.android.ggallery.museodellemarionette.QuartaStanza">
 
 
     <TextView
@@ -36,7 +36,7 @@
         android:layout_width="960px"
         android:layout_height="540px"
         android:id="@+id/imageView3"
-        android:src="@drawable/sala2sw"
+        android:src="@drawable/sala4sw"
 
         android:layout_marginTop="330px"
 
@@ -220,3 +220,4 @@
 
 
 </FrameLayout>
+

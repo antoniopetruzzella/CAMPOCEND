@@ -1,95 +1,79 @@
 package com.android.ggallery.museodellemarionette;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.PopupMenu;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.SeekBar;
-
-import java.lang.reflect.Field;
-import java.security.PrivilegedAction;
+import android.widget.TextView;
 
 public class PrimaStanza extends AppCompatActivity implements SurfaceHolder.Callback, View.OnClickListener {
 
-private MediaPlayer antoVideoPlayer, kalimbaAudioPlayer, maidAudioPlayer;
-private SurfaceHolder holder;
-private SurfaceView surface;
-private Button  videopausebtn, kalimbaplaybtn, kalimbapausebtn, maidplaybtn, maidpausebtn,approfondimentibtn;
-private ImageButton videoplaybtn;
-private SeekBar timeline;
-private Intent palazzobalbiIntent,videoIntent;
-
+    private MediaPlayer antoVideoPlayer,currentMediaPlaying,audioguida1,audioguida2,audioguida3;
+    private SurfaceHolder holder;
+    private SurfaceView surface;
+    private ImageButton videoplaybtn,gpplaybtn,gppausebtn,palazzobalbibtn,lacollezionebtn,videointrobtn,audiostop1,audiostop2,audiostop3;
+    private ImageView surfaceview;
+    private SeekBar timeline;
+    private TextView guardailvideo,ascoltaaudio,ag1,ag2,ag3;
+    private Intent palazzobalbiIntent, videoIntent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prima_stanza);
         surface = (SurfaceView) findViewById(R.id.surfaceview);
         videoplaybtn=(ImageButton)findViewById(R.id.videoplaybtn);
-        videopausebtn=(Button)findViewById(R.id.videopausebtn);
-        kalimbaplaybtn=(Button)findViewById(R.id.kalimbaplaybtn);
-        kalimbapausebtn=(Button)findViewById(R.id.kalimbapausebtn);
-        maidplaybtn=(Button)findViewById(R.id.maidplaybtn);
-        maidpausebtn=(Button)findViewById(R.id.maidpausebtn);
-        approfondimentibtn=(Button)findViewById(R.id.approfondimentibtn);
-        timeline=(SeekBar)findViewById(R.id.timeline);
-        //palazzo_balbi=(MenuItem)findViewById(R.id.palazzo_balbi);
+        gpplaybtn=(ImageButton)findViewById(R.id.gpplaybtn);
+        gppausebtn=(ImageButton)findViewById(R.id.gppausebtn);
+        surfaceview=(ImageView)findViewById(R.id.imageView3);
+        palazzobalbibtn=(ImageButton)findViewById(R.id.palazzobalbibtn);
+        lacollezionebtn=(ImageButton)findViewById(R.id.lacollezionebtn);
+        videointrobtn=(ImageButton)findViewById(R.id.videointrobtn);
+        ag1=(TextView)findViewById(R.id.ag1);
+        ag2=(TextView)findViewById(R.id.ag2);
+        ag3=(TextView)findViewById(R.id.ag3);
+        audiostop1=(ImageButton)findViewById(R.id.audiostop1);
+        audiostop2=(ImageButton)findViewById(R.id.audiostop2);
+        audiostop3=(ImageButton)findViewById(R.id.audiostop3);
         videoplaybtn.setOnClickListener(this);
-        videopausebtn.setOnClickListener(this);
-        kalimbaplaybtn.setOnClickListener(this);
-        kalimbapausebtn.setOnClickListener(this);
-        maidplaybtn.setOnClickListener(this);
-        maidpausebtn.setOnClickListener(this);
-        palazzobalbiIntent=new Intent(this, PalazzoBalbi.class);
-        videoIntent=new Intent(this,Video.class);
-        approfondimentibtn.setOnClickListener(this);
+        gpplaybtn.setOnClickListener(this);
+        gppausebtn.setOnClickListener(this);
+        ag1.setOnClickListener(this);
+        ag2.setOnClickListener(this);
+        ag3.setOnClickListener(this);
+        palazzobalbibtn.setOnClickListener(this);
+        lacollezionebtn.setOnClickListener(this);
+        videointrobtn.setOnClickListener(this);
         holder = surface.getHolder();
         holder.addCallback(this);
-        kalimbaAudioPlayer=MediaPlayer.create(this,R.raw.kalimba);
-        maidAudioPlayer=MediaPlayer.create(this,R.raw.kalimba);
-
+        palazzobalbiIntent=new Intent(this, PalazzoBalbi.class);
+        videoIntent=new Intent(this, Video.class);
+        timeline=(SeekBar)findViewById(R.id.timeline);
+        Typeface type = Typeface.createFromAsset(getAssets(),"fonts/mbold.ttf");
+        guardailvideo=(TextView)findViewById(R.id.guardailvideo);
+        ascoltaaudio=(TextView)findViewById(R.id.ascoltaaudio);
+        guardailvideo.setTypeface(type);
+        ascoltaaudio.setTypeface(type);
+        audioguida1=MediaPlayer.create(this, R.raw.sala01_01);
+        audioguida2=MediaPlayer.create(this, R.raw.sala01_02);
+        audioguida3=MediaPlayer.create(this, R.raw.sala01_03);
+        Global global=(Global)getApplicationContext();
+        global.setInStaticActivity(true);
         handler.post(runnable);
-    }
-
-    @Override
-    protected void onPause(){
-
-
-        super.onPause();
-
-    }
-
-    @Override
-    protected void onStop(){
-
-        super.onStop();
-        handler.removeCallbacks(runnable);
-        kalimbaAudioPlayer.release();
-        maidAudioPlayer.release();
-        antoVideoPlayer.release();
-    }
-
-    @Override
-    protected void onResume(){
-
-        super.onResume();
-
     }
 
     @Override
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
 
-        antoVideoPlayer=MediaPlayer.create(this, R.raw.video1);
+        antoVideoPlayer=MediaPlayer.create(this, R.raw.sala03);
         antoVideoPlayer.setDisplay(holder);
 
     }
@@ -106,6 +90,52 @@ private Intent palazzobalbiIntent,videoIntent;
     }
 
     @Override
+    protected void onPause(){
+
+        antoVideoPlayer.stop();
+        if(currentMediaPlaying!=null) {
+            currentMediaPlaying.stop();
+        }
+        audioguida1.stop();
+        audioguida2.stop();
+        audioguida3.stop();
+        super.onPause();
+
+
+    }
+
+    @Override
+    protected void onStop(){
+
+        handler.removeCallbacks(runnable);
+        antoVideoPlayer.release();
+        if(currentMediaPlaying!=null) {
+            currentMediaPlaying.stop();
+        }
+        audioguida1.release();
+        audioguida2.release();
+        audioguida3.release();
+        super.onStop();
+
+    }
+
+    @Override
+    protected void onResume(){
+
+        antoVideoPlayer=MediaPlayer.create(this, R.raw.sala03);
+        currentMediaPlaying=null;
+        audioguida1=MediaPlayer.create(this, R.raw.sala01_01);
+        audioguida2=MediaPlayer.create(this, R.raw.sala01_02);
+        audioguida3=MediaPlayer.create(this, R.raw.sala01_03);
+        surfaceview.setVisibility(View.VISIBLE);
+        videoplaybtn.setVisibility(View.VISIBLE);
+        handler.post(runnable);
+        Global global=(Global)getApplicationContext();
+        global.setInStaticActivity(false);
+        super.onResume();
+    }
+
+    @Override
     public  void onClick(View view){
 
         switch (view.getId()){
@@ -113,41 +143,88 @@ private Intent palazzobalbiIntent,videoIntent;
             case R.id.videoplaybtn:
                 timeline.setMax(antoVideoPlayer.getDuration());
                 antoVideoPlayer.start();
-                //kalimbaAudioPlayer.pause();
-                //maidAudioPlayer.pause();
+                videoplaybtn.setVisibility(View.INVISIBLE);
+                surfaceview.setVisibility(View.INVISIBLE);
                 break;
 
-            case R.id.videopausebtn:
-                antoVideoPlayer.pause();
+            case R.id.gppausebtn:
+                if(currentMediaPlaying!=null) {
+                    currentMediaPlaying.pause();
+                }
+                if(currentMediaPlaying!=null) {
+                    if (currentMediaPlaying == antoVideoPlayer) {
+                        videoplaybtn.setVisibility(View.VISIBLE);
+                    }
+                }
+                break;
+            case R.id.gpplaybtn:
+                if(audioguida2.isPlaying()) {
+                    audioguida2.pause();
+                }
+                if(audioguida3.isPlaying()) {
+                    audioguida3.pause();
+                }
+                if(audioguida1.isPlaying()) {
+                    audioguida1.pause();
+                }
+                if(currentMediaPlaying!=null) {
+                    currentMediaPlaying.start();
+                }
+                if(currentMediaPlaying!=null) {
+                    if (currentMediaPlaying == antoVideoPlayer) {
+                        videoplaybtn.setVisibility(View.INVISIBLE);
+                    }
+                }
+                break;
+            case R.id.ag1:
+                if(audioguida1!=null) {
+                    timeline.setMax((audioguida1.getDuration()));
+                    if(audioguida2.isPlaying()) {
+                        audioguida2.pause();
+                    }
+                    if(audioguida3.isPlaying()) {
+                        audioguida3.pause();
+                    }
+                    audioguida1.start();
+                    videoplaybtn.setVisibility(View.VISIBLE);
+                }
+                break;
+            case R.id.ag2:
+                timeline.setMax((audioguida2.getDuration()));
+                if(audioguida1.isPlaying()) {
+                    audioguida1.pause();
+                }
+                if(audioguida3.isPlaying()) {
+                    audioguida3.pause();
+                }
+                audioguida2.start();
+                videoplaybtn.setVisibility(View.VISIBLE);
+                break;
+            case R.id.ag3:
+                timeline.setMax((audioguida3.getDuration()));
+                if(audioguida2.isPlaying()) {
+                    audioguida2.pause();
+                }
+                if(audioguida1.isPlaying()) {
+                    audioguida1.pause();
+                }
+                audioguida3.start();
+                videoplaybtn.setVisibility(View.VISIBLE);
+                break;
+            case R.id.palazzobalbibtn:
+                palazzobalbiIntent.putExtra("indirizzo","palazzobalbi.html");
+                startActivity(palazzobalbiIntent);
+                break;
+            case R.id.lacollezionebtn:
+                palazzobalbiIntent.putExtra("indirizzo","collezione.html");
+                startActivity(palazzobalbiIntent);
+                break;
+            case R.id.videointrobtn:
+                startActivity(videoIntent);
                 break;
 
-            case R.id.kalimbaplaybtn:
-                timeline.setMax(kalimbaAudioPlayer.getDuration());
-                kalimbaAudioPlayer.start();
-                //antoVideoPlayer.pause();
-                //maidAudioPlayer.pause();
-                break;
 
-            case R.id.kalimbapausebtn:
-                kalimbaAudioPlayer.pause();
-                break;
 
-            case R.id.maidplaybtn:
-                timeline.setMax(maidAudioPlayer.getDuration());
-                maidAudioPlayer.start();
-                //antoVideoPlayer.pause();
-                //kalimbaAudioPlayer.pause();
-                break;
-
-            case R.id.maidpausebtn:
-
-                maidAudioPlayer.pause();
-                break;
-
-            case R.id.approfondimentibtn:
-
-               approfondimentiClicked(approfondimentibtn);
-                break;
         }
 
 
@@ -161,25 +238,49 @@ private Intent palazzobalbiIntent,videoIntent;
         public void run( )
         {
 
+
             try {
+
+                audiostop1.setImageResource(R.drawable.audiostop);
+                audiostop2.setImageResource(R.drawable.audiostop);
+                audiostop3.setImageResource(R.drawable.audiostop);
+
+
                 if (antoVideoPlayer != null) {
                     if (antoVideoPlayer.isPlaying()) {
+                        currentMediaPlaying=antoVideoPlayer;
                         timeline.setProgress(antoVideoPlayer.getCurrentPosition());
                     }
                 }
-                if (kalimbaAudioPlayer != null) {
-                    if (kalimbaAudioPlayer.isPlaying()) {
-                        timeline.setProgress(kalimbaAudioPlayer.getCurrentPosition());
+
+                if (audioguida1 != null) {
+
+                    if (audioguida1.isPlaying()) {
+                        currentMediaPlaying=audioguida1;
+                        timeline.setProgress(audioguida1.getCurrentPosition());
+                        audiostop1.setImageResource(R.drawable.audioplay);
                     }
                 }
-                if (maidAudioPlayer != null) {
-                    if (maidAudioPlayer.isPlaying()) {
-                        timeline.setProgress(maidAudioPlayer.getCurrentPosition());
+
+                if (audioguida2 != null) {
+                    if (audioguida2.isPlaying()) {
+                        currentMediaPlaying=audioguida2;
+                        timeline.setProgress(audioguida2.getCurrentPosition());
+                        audiostop2.setImageResource(R.drawable.audioplay);
                     }
                 }
+
+                if (audioguida3 != null) {
+                    if (audioguida3.isPlaying()) {
+                        currentMediaPlaying=audioguida3;
+                        timeline.setProgress(audioguida3.getCurrentPosition());
+                        audiostop3.setImageResource(R.drawable.audioplay);
+                    }
+                }
+
             }catch (Exception ex){}
 
-            handler.postDelayed( this, 500 );
+            handler.postDelayed( this, 50);
         }
     };
 
@@ -191,55 +292,6 @@ private Intent palazzobalbiIntent,videoIntent;
         }
 
     };
-
-
-
-    private void approfondimentiClicked(View v){
-
-        PopupMenu popup = new PopupMenu(this, v);
-        MenuInflater inflater = popup.getMenuInflater();
-        inflater.inflate(R.menu.main_menu, popup.getMenu());
-        Object menuHelper;
-        Class[] argTypes;
-        try {
-            Field fMenuHelper = PopupMenu.class.getDeclaredField("mPopup");
-            fMenuHelper.setAccessible(true);
-            menuHelper = fMenuHelper.get(popup);
-            argTypes = new Class[]{boolean.class};
-            menuHelper.getClass().getDeclaredMethod("setForceShowIcon", argTypes).invoke(menuHelper, true);
-        } catch (Exception e) {
-            // Possible exceptions are NoSuchMethodError and NoSuchFieldError
-            //
-            // In either case, an exception indicates something is wrong with the reflection code, or the
-            // structure of the PopupMenu class or its dependencies has changed.
-            //
-            // These exceptions should never happen since we're shipping the AppCompat library in our own apk,
-            // but in the case that they do, we simply can't force icons to display, so log the error and
-            // show the menu normally.
-        }
-        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-
-                switch (item.getItemId()){
-
-                    case R.id.palazzo_balbi:
-                        palazzobalbiIntent.putExtra("indirizzo","palazzobalbi.html");
-                        startActivity(palazzobalbiIntent);
-                        break;
-                    case R.id.video01:
-                        videoIntent.putExtra("video","video01");
-                        videoIntent.putExtra("titolo","Introduzione alla collezione");
-                        startActivity(videoIntent);
-                        break;
-
-                }
-                return true;
-            }
-        });
-        popup.show();
-    }
 
 
 }

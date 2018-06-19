@@ -62,9 +62,9 @@ public class terza_stanza extends AppCompatActivity implements SurfaceHolder.Cal
         ascoltaaudio=(TextView)findViewById(R.id.ascoltaaudio);
         guardailvideo.setTypeface(type);
         ascoltaaudio.setTypeface(type);
-        audioguida1=MediaPlayer.create(this, R.raw.kalimba);
-        audioguida2=MediaPlayer.create(this, R.raw.kalimba);
-        audioguida3=MediaPlayer.create(this, R.raw.kalimba);
+        audioguida1=MediaPlayer.create(this, R.raw.sala03_01);
+        audioguida2=MediaPlayer.create(this, R.raw.sala03_02);
+        audioguida3=MediaPlayer.create(this, R.raw.sala03_03);
         Global global=(Global)getApplicationContext();
         global.setInStaticActivity(true);
         handler.post(runnable);
@@ -124,9 +124,9 @@ public class terza_stanza extends AppCompatActivity implements SurfaceHolder.Cal
 
         antoVideoPlayer=MediaPlayer.create(this, R.raw.sala03);
         currentMediaPlaying=null;
-        audioguida1=MediaPlayer.create(this, R.raw.kalimba);
-        audioguida2=MediaPlayer.create(this, R.raw.kalimba);
-        audioguida3=MediaPlayer.create(this, R.raw.kalimba);
+        audioguida1=MediaPlayer.create(this, R.raw.sala03_01);
+        audioguida2=MediaPlayer.create(this, R.raw.sala03_02);
+        audioguida3=MediaPlayer.create(this, R.raw.sala03_03);
         surfaceview.setVisibility(View.VISIBLE);
         videoplaybtn.setVisibility(View.VISIBLE);
         handler.post(runnable);
