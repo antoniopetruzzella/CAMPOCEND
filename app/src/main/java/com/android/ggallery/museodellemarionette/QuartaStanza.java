@@ -110,7 +110,7 @@ public class QuartaStanza extends AppCompatActivity implements SurfaceHolder.Cal
         handler.removeCallbacks(runnable);
         antoVideoPlayer.release();
         if(currentMediaPlaying!=null) {
-            currentMediaPlaying.stop();
+            currentMediaPlaying.release();
         }
         audioguida1.release();
         audioguida2.release();
@@ -224,7 +224,8 @@ public class QuartaStanza extends AppCompatActivity implements SurfaceHolder.Cal
 
 
             try {
-
+                Global global=(Global)getApplicationContext();
+                global.setCurrentMediaPlaying(null);
                 audiostop1.setImageResource(R.drawable.audiostop);
                 audiostop2.setImageResource(R.drawable.audiostop);
 
@@ -233,6 +234,7 @@ public class QuartaStanza extends AppCompatActivity implements SurfaceHolder.Cal
                 if (antoVideoPlayer != null) {
                     if (antoVideoPlayer.isPlaying()) {
                         currentMediaPlaying=antoVideoPlayer;
+                        global.setCurrentMediaPlaying(antoVideoPlayer);
                         timeline.setProgress(antoVideoPlayer.getCurrentPosition());
                     }
                 }
@@ -241,6 +243,7 @@ public class QuartaStanza extends AppCompatActivity implements SurfaceHolder.Cal
 
                     if (audioguida1.isPlaying()) {
                         currentMediaPlaying=audioguida1;
+                        global.setCurrentMediaPlaying(audioguida1);
                         timeline.setProgress(audioguida1.getCurrentPosition());
                         audiostop1.setImageResource(R.drawable.audioplay);
                     }
@@ -249,6 +252,7 @@ public class QuartaStanza extends AppCompatActivity implements SurfaceHolder.Cal
                 if (audioguida2 != null) {
                     if (audioguida2.isPlaying()) {
                         currentMediaPlaying=audioguida2;
+                        global.setCurrentMediaPlaying(audioguida2);
                         timeline.setProgress(audioguida2.getCurrentPosition());
                         audiostop2.setImageResource(R.drawable.audioplay);
                     }

@@ -30,7 +30,7 @@ public final class GgalleryBeaconListenerIntentService extends IntentService {
     private BluetoothManager btManager;
     private BluetoothAdapter btAdapter;
     private Handler scanHandler = new Handler();
-    private int scan_interval_ms = 2000;
+    private int scan_interval_ms = 500;
     private boolean isScanning = false;
     private ArrayList<Beacon> beacons;
     private String LocationUUid="C336AA38-054B-B048-3B0A-E75027061982";//CONFIGURAZIONE UUID DI CLIENTE

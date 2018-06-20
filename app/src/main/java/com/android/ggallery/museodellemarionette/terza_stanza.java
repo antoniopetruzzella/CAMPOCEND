@@ -110,7 +110,7 @@ public class terza_stanza extends AppCompatActivity implements SurfaceHolder.Cal
         handler.removeCallbacks(runnable);
         antoVideoPlayer.release();
         if(currentMediaPlaying!=null) {
-            currentMediaPlaying.stop();
+            currentMediaPlaying.release();
         }
         audioguida1.release();
         audioguida2.release();
@@ -240,7 +240,8 @@ public class terza_stanza extends AppCompatActivity implements SurfaceHolder.Cal
 
 
             try {
-
+                Global global=(Global)getApplicationContext();
+                global.setCurrentMediaPlaying(null);
                 audiostop1.setImageResource(R.drawable.audiostop);
                 audiostop2.setImageResource(R.drawable.audiostop);
                 audiostop3.setImageResource(R.drawable.audiostop);
@@ -249,6 +250,7 @@ public class terza_stanza extends AppCompatActivity implements SurfaceHolder.Cal
                 if (antoVideoPlayer != null) {
                     if (antoVideoPlayer.isPlaying()) {
                         currentMediaPlaying=antoVideoPlayer;
+                        global.setCurrentMediaPlaying(antoVideoPlayer);
                         timeline.setProgress(antoVideoPlayer.getCurrentPosition());
                     }
                 }
@@ -257,6 +259,7 @@ public class terza_stanza extends AppCompatActivity implements SurfaceHolder.Cal
 
                     if (audioguida1.isPlaying()) {
                         currentMediaPlaying=audioguida1;
+                        global.setCurrentMediaPlaying(audioguida1);
                         timeline.setProgress(audioguida1.getCurrentPosition());
                         audiostop1.setImageResource(R.drawable.audioplay);
                     }
@@ -265,6 +268,7 @@ public class terza_stanza extends AppCompatActivity implements SurfaceHolder.Cal
                 if (audioguida2 != null) {
                     if (audioguida2.isPlaying()) {
                         currentMediaPlaying=audioguida2;
+                        global.setCurrentMediaPlaying(audioguida2);
                         timeline.setProgress(audioguida2.getCurrentPosition());
                         audiostop2.setImageResource(R.drawable.audioplay);
                     }
@@ -273,6 +277,7 @@ public class terza_stanza extends AppCompatActivity implements SurfaceHolder.Cal
                 if (audioguida3 != null) {
                     if (audioguida3.isPlaying()) {
                         currentMediaPlaying=audioguida3;
+                        global.setCurrentMediaPlaying(audioguida3);
                         timeline.setProgress(audioguida3.getCurrentPosition());
                         audiostop3.setImageResource(R.drawable.audioplay);
                     }

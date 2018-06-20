@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 
 import android.content.pm.PackageManager;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Handler;
 import android.os.PersistableBundle;
@@ -21,11 +22,11 @@ public class MainActivity extends AppCompatActivity  {
 
     private Handler scanHandler = new Handler();
     private Handler startHandler=new Handler();
-    private int scan_interval_ms = 2000;
+    private int scan_interval_ms = 750;
     private int start_interval_ms=10000;
     private int actualRoom=-9999;
     private boolean copertina=false;
-    private Intent primaStanzaIntent,secondaStanzaIntent,terzaStanzaIntent,quartaStanzaIntent,quintaStanzaIntent;
+    private Intent primaStanzaIntent,secondaStanzaIntent,terzaStanzaIntent,quartaStanzaIntent;
     private static final int PERMISSION_REQUEST_COARSE_LOCATION = 1;
     private static final int PERMISSION_REQUEST_FINE_LOCATION = 1;
 
@@ -106,12 +107,19 @@ public class MainActivity extends AppCompatActivity  {
         @Override
         public void run() {
             Global global=(Global)getApplicationContext();
-           if(global.getNearestBeacon()!=null && global.getInStaticActivity()==false) {
+           if(global.getNearestBeacon()!=null) {
                Log.i("ACTUAL UUID NEAREST", global.getNearestBeacon().getUuid());
                Log.i("ACTUAL MINOR NEAREST", global.getNearestBeacon().getMinor().toString());
                Log.i("ACTUAL MAJOR NEAREST", global.getNearestBeacon().getMajor().toString());
-               if(copertina)
-                   openRoomActivity(global.getNearestBeacon().getMajor());
+               if(copertina && global.getInStaticActivity()==false){
+                   if(global.getCurrentMediaPlaying()==null) {
+                       openRoomActivity(global.getNearestBeacon().getMajor());
+                   }else{
+                       if(global.getCurrentMediaPlaying().isPlaying()==false) {
+                           openRoomActivity(global.getNearestBeacon().getMajor());
+                       }
+                   }
+               }
            }
             scanHandler.postDelayed(this, scan_interval_ms);
         }

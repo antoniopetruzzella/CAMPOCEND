@@ -2,7 +2,7 @@ package com.android.ggallery.museodellemarionette;
 
 import android.app.Application;
 
-import java.util.Map;
+import android.media.MediaPlayer;
 
 public class Global extends Application {
 
@@ -28,6 +28,18 @@ public class Global extends Application {
     public void setInStaticActivity(Boolean _inStaticActivity){
 
         inStaticActivity=_inStaticActivity;
+    }
+
+    MediaPlayer currentMediaPlaying;
+
+    public MediaPlayer getCurrentMediaPlaying(){
+
+        return currentMediaPlaying;
+    }
+
+    public void setCurrentMediaPlaying(MediaPlayer _currentMediaPlaying){
+
+        currentMediaPlaying=_currentMediaPlaying;
     }
 
 }
