@@ -5,4 +5,5 @@
     <dimen name="audioguide_banner_height">100px</dimen>
     <dimen name="footer_menu_bar_top">1640px</dimen>
     <dimen name="footer_menu_bar_height">200px</dimen>
+    <dimen name="audiostop_left">350px</dimen>
 </resources>

@@ -75,7 +75,7 @@
     android:layout_width="1000px"
         android:layout_height="@dimen/audioguide_banner_height"
     android:textAppearance="?android:attr/textAppearanceLarge"
-    android:text="Audioguida 1"
+    android:text="Burattini o marionette"
     android:textColor="@color/bright_foreground_material_light"
     android:id="@+id/ag1"
     android:layout_marginTop="960px"
@@ -89,14 +89,14 @@
         android:id="@+id/audiostop1"
         android:src="@drawable/audiostop"
         android:layout_marginTop="985px"
-        android:layout_marginLeft="400px"
+        android:layout_marginLeft="@dimen/audiostop_left"
         android:background="@null"/>
 
     <TextView
         android:layout_width="1000px"
         android:layout_height="@dimen/audioguide_banner_height"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Audioguida 1"
+        android:text="Storia delle marionette"
         android:textColor="@color/bright_foreground_material_light"
         android:id="@+id/ag2"
         android:layout_marginTop="1060px"
@@ -110,7 +110,7 @@
         android:id="@+id/audiostop2"
         android:src="@drawable/audiostop"
         android:layout_marginTop="1085px"
-        android:layout_marginLeft="400px"
+        android:layout_marginLeft="@dimen/audiostop_left"
         android:background="@null"/>
     <ImageView
         android:layout_width="725dp"
@@ -125,7 +125,7 @@
         android:layout_width="1000px"
         android:layout_height="@dimen/audioguide_banner_height"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Audioguida 1"
+        android:text="I teatrini delle marionette"
         android:textColor="@color/bright_foreground_material_light"
         android:id="@+id/ag3"
         android:layout_marginTop="1160px"
@@ -139,7 +139,7 @@
         android:id="@+id/audiostop3"
         android:src="@drawable/audiostop"
         android:layout_marginTop="1185px"
-        android:layout_marginLeft="400px"
+        android:layout_marginLeft="@dimen/audiostop_left"
         android:background="@null"/>
     <ImageView
         android:layout_width="725dp"

@@ -74,7 +74,7 @@ public class SecondaStanza extends AppCompatActivity implements SurfaceHolder.Ca
     @Override
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
 
-        antoVideoPlayer=MediaPlayer.create(this, R.raw.sala03);
+        antoVideoPlayer=MediaPlayer.create(this, R.raw.sala02);
         antoVideoPlayer.setDisplay(holder);
 
     }
@@ -123,7 +123,7 @@ public class SecondaStanza extends AppCompatActivity implements SurfaceHolder.Ca
     @Override
     protected void onResume(){
 
-        antoVideoPlayer=MediaPlayer.create(this, R.raw.sala03);
+        antoVideoPlayer=MediaPlayer.create(this, R.raw.sala02);
         currentMediaPlaying=null;
         audioguida1=MediaPlayer.create(this, R.raw.sala02_01);
         audioguida2=MediaPlayer.create(this, R.raw.sala02_02);

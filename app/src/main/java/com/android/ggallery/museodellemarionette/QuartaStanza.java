@@ -28,7 +28,7 @@ public class QuartaStanza extends AppCompatActivity implements SurfaceHolder.Cal
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_seconda_stanza);
+        setContentView(R.layout.activity_quarta_stanza);
         surface = (SurfaceView) findViewById(R.id.surfaceview);
         videoplaybtn=(ImageButton)findViewById(R.id.videoplaybtn);
         gpplaybtn=(ImageButton)findViewById(R.id.gpplaybtn);
@@ -73,7 +73,7 @@ public class QuartaStanza extends AppCompatActivity implements SurfaceHolder.Cal
     @Override
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
 
-        antoVideoPlayer=MediaPlayer.create(this, R.raw.sala03);
+        antoVideoPlayer=MediaPlayer.create(this, R.raw.sala04);
         antoVideoPlayer.setDisplay(holder);
 
     }
@@ -122,7 +122,7 @@ public class QuartaStanza extends AppCompatActivity implements SurfaceHolder.Cal
     @Override
     protected void onResume(){
 
-        antoVideoPlayer=MediaPlayer.create(this, R.raw.sala03);
+        antoVideoPlayer=MediaPlayer.create(this, R.raw.sala04);
         currentMediaPlaying=null;
         audioguida1=MediaPlayer.create(this, R.raw.sala04_01);
         audioguida2=MediaPlayer.create(this, R.raw.sala04_02);

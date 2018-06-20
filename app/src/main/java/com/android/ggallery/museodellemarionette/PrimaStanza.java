@@ -73,7 +73,7 @@ public class PrimaStanza extends AppCompatActivity implements SurfaceHolder.Call
     @Override
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
 
-        antoVideoPlayer=MediaPlayer.create(this, R.raw.sala03);
+        antoVideoPlayer=MediaPlayer.create(this, R.raw.sala01);
         antoVideoPlayer.setDisplay(holder);
 
     }
@@ -122,7 +122,7 @@ public class PrimaStanza extends AppCompatActivity implements SurfaceHolder.Call
     @Override
     protected void onResume(){
 
-        antoVideoPlayer=MediaPlayer.create(this, R.raw.sala03);
+        antoVideoPlayer=MediaPlayer.create(this, R.raw.sala01);
         currentMediaPlaying=null;
         audioguida1=MediaPlayer.create(this, R.raw.sala01_01);
         audioguida2=MediaPlayer.create(this, R.raw.sala01_02);

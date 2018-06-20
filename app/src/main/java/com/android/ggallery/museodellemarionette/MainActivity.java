@@ -82,6 +82,7 @@ public class MainActivity extends AppCompatActivity  {
         primaStanzaIntent=new Intent(this, PrimaStanza.class);
         secondaStanzaIntent=new Intent(this, SecondaStanza.class);
         terzaStanzaIntent=new Intent(this, terza_stanza.class);
+        quartaStanzaIntent=new Intent(this, QuartaStanza.class);
 
     }
 
@@ -129,6 +130,9 @@ public class MainActivity extends AppCompatActivity  {
                     break;
                 case 3:
                     startActivity(terzaStanzaIntent);
+                    break;
+                case 4:
+                    startActivity(quartaStanzaIntent);
                     break;
                 default:
                     break;
