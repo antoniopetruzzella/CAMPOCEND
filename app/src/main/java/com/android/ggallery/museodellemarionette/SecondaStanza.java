@@ -143,6 +143,13 @@ public class SecondaStanza extends AppCompatActivity implements SurfaceHolder.Ca
 
             case R.id.videoplaybtn:
                 timeline.setMax(antoVideoPlayer.getDuration());
+                if(audioguida1.isPlaying()) {
+                    audioguida1.pause();
+                }
+                if(audioguida2.isPlaying()) {
+                    audioguida2.pause();
+                }
+
                 antoVideoPlayer.start();
                 videoplaybtn.setVisibility(View.INVISIBLE);
                 surfaceview.setVisibility(View.INVISIBLE);
@@ -159,6 +166,9 @@ public class SecondaStanza extends AppCompatActivity implements SurfaceHolder.Ca
                 }
                 break;
             case R.id.gpplaybtn:
+                if(antoVideoPlayer.isPlaying()){
+                    antoVideoPlayer.pause();
+                }
                 if(audioguida2.isPlaying()) {
                     audioguida2.pause();
                 }
@@ -178,6 +188,9 @@ public class SecondaStanza extends AppCompatActivity implements SurfaceHolder.Ca
             case R.id.ag1:
                 if(audioguida1!=null) {
                     timeline.setMax((audioguida1.getDuration()));
+                    if(antoVideoPlayer.isPlaying()){
+                        antoVideoPlayer.pause();
+                    }
                     if(audioguida2.isPlaying()) {
                         audioguida2.pause();
                     }
@@ -188,6 +201,9 @@ public class SecondaStanza extends AppCompatActivity implements SurfaceHolder.Ca
                 break;
             case R.id.ag2:
                 timeline.setMax((audioguida2.getDuration()));
+                if(antoVideoPlayer.isPlaying()){
+                    antoVideoPlayer.pause();
+                }
                 if(audioguida1.isPlaying()) {
                     audioguida1.pause();
                 }

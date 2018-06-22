@@ -142,6 +142,15 @@ public class PrimaStanza extends AppCompatActivity implements SurfaceHolder.Call
 
             case R.id.videoplaybtn:
                 timeline.setMax(antoVideoPlayer.getDuration());
+                if(audioguida1.isPlaying()) {
+                    audioguida1.pause();
+                }
+                if(audioguida2.isPlaying()) {
+                    audioguida2.pause();
+                }
+                if(audioguida3.isPlaying()) {
+                    audioguida3.pause();
+                }
                 antoVideoPlayer.start();
                 videoplaybtn.setVisibility(View.INVISIBLE);
                 surfaceview.setVisibility(View.INVISIBLE);
@@ -158,6 +167,9 @@ public class PrimaStanza extends AppCompatActivity implements SurfaceHolder.Call
                 }
                 break;
             case R.id.gpplaybtn:
+                if(antoVideoPlayer.isPlaying()){
+                    antoVideoPlayer.pause();
+                }
                 if(audioguida2.isPlaying()) {
                     audioguida2.pause();
                 }
@@ -179,6 +191,9 @@ public class PrimaStanza extends AppCompatActivity implements SurfaceHolder.Call
             case R.id.ag1:
                 if(audioguida1!=null) {
                     timeline.setMax((audioguida1.getDuration()));
+                    if(antoVideoPlayer.isPlaying()){
+                        antoVideoPlayer.pause();
+                    }
                     if(audioguida2.isPlaying()) {
                         audioguida2.pause();
                     }
@@ -191,6 +206,9 @@ public class PrimaStanza extends AppCompatActivity implements SurfaceHolder.Call
                 break;
             case R.id.ag2:
                 timeline.setMax((audioguida2.getDuration()));
+                if(antoVideoPlayer.isPlaying()){
+                    antoVideoPlayer.pause();
+                }
                 if(audioguida1.isPlaying()) {
                     audioguida1.pause();
                 }
@@ -202,6 +220,9 @@ public class PrimaStanza extends AppCompatActivity implements SurfaceHolder.Call
                 break;
             case R.id.ag3:
                 timeline.setMax((audioguida3.getDuration()));
+                if(antoVideoPlayer.isPlaying()){
+                    antoVideoPlayer.pause();
+                }
                 if(audioguida2.isPlaying()) {
                     audioguida2.pause();
                 }

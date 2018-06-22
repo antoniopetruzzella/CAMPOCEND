@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity  {
     private Handler scanHandler = new Handler();
     private Handler startHandler=new Handler();
     private int scan_interval_ms = 750;
-    private int start_interval_ms=10000;
+    private int start_interval_ms=5000;
     private int actualRoom=-9999;
     private boolean copertina=false;
     private Intent primaStanzaIntent,secondaStanzaIntent,terzaStanzaIntent,quartaStanzaIntent;

@@ -20,7 +20,7 @@ public class Video extends AppCompatActivity implements SurfaceHolder.Callback, 
     private MediaPlayer currentMediaPlaying,video1,video2,video3,video4,video5;
     private SurfaceHolder holder;
     private SurfaceView surface;
-    private ImageButton gpplaybtn,gppausebtn,palazzobalbibtn,lacollezionebtn;
+    private ImageButton gpplaybtn,gppausebtn,palazzobalbibtn,lacollezionebtn,audiostop1,audiostop2,audiostop3,audiostop4,audiostop5;
     private ImageView copertinaprimovideo;
     private SeekBar timeline;
     private TextView ascoltaaudio,video1box,video2box,video3box,video4box,video5box;
@@ -37,6 +37,12 @@ public class Video extends AppCompatActivity implements SurfaceHolder.Callback, 
         palazzobalbibtn=(ImageButton)findViewById(R.id.palazzobalbibtn);
         lacollezionebtn=(ImageButton)findViewById(R.id.lacollezionebtn);
 
+        audiostop1=(ImageButton)findViewById(R.id.audiostop1);
+        audiostop2=(ImageButton)findViewById(R.id.audiostop2);
+        audiostop3=(ImageButton)findViewById(R.id.audiostop3);
+        audiostop4=(ImageButton)findViewById(R.id.audiostop4);
+        audiostop5=(ImageButton)findViewById(R.id.audiostop5);
+
         video1box=(TextView)findViewById(R.id.video1box);
         video2box=(TextView)findViewById(R.id.video2box);
         video3box=(TextView)findViewById(R.id.video3box);
@@ -50,6 +56,12 @@ public class Video extends AppCompatActivity implements SurfaceHolder.Callback, 
         video3box.setOnClickListener(this);
         video4box.setOnClickListener(this);
         video5box.setOnClickListener(this);
+        audiostop1.setOnClickListener(this);
+        audiostop2.setOnClickListener(this);
+        audiostop3.setOnClickListener(this);
+        audiostop4.setOnClickListener(this);
+        audiostop5.setOnClickListener(this);
+
         palazzobalbibtn.setOnClickListener(this);
         lacollezionebtn.setOnClickListener(this);
 
@@ -63,6 +75,8 @@ public class Video extends AppCompatActivity implements SurfaceHolder.Callback, 
         ascoltaaudio=(TextView)findViewById(R.id.ascoltaaudio);
 
         ascoltaaudio.setTypeface(type);
+        Global global=(Global)getApplicationContext();
+        global.setInStaticActivity(true);
 
         handler.post(runnable);
     }
@@ -114,6 +128,15 @@ public class Video extends AppCompatActivity implements SurfaceHolder.Callback, 
     protected void onResume(){
 
         super.onResume();
+        video1=MediaPlayer.create(this, R.raw.video1);
+        video2=MediaPlayer.create(this, R.raw.video2);
+        video3=MediaPlayer.create(this, R.raw.video3);
+        video4=MediaPlayer.create(this, R.raw.video4);
+        video5=MediaPlayer.create(this, R.raw.video5);
+        currentMediaPlaying=null;
+        Global global=(Global)getApplicationContext();
+        global.setInStaticActivity(true);
+        handler.post(runnable);
 
     }
 
@@ -136,6 +159,7 @@ public class Video extends AppCompatActivity implements SurfaceHolder.Callback, 
                 }
                 break;
             case R.id.video1box:
+            case R.id.audiostop1:
                 if(currentMediaPlaying!=null) {
                     currentMediaPlaying.pause();
                 }
@@ -153,6 +177,7 @@ public class Video extends AppCompatActivity implements SurfaceHolder.Callback, 
 
                 break;
             case R.id.video2box:
+            case R.id.audiostop2:
                 if(currentMediaPlaying!=null) {
                     currentMediaPlaying.pause();
                 }
@@ -170,6 +195,7 @@ public class Video extends AppCompatActivity implements SurfaceHolder.Callback, 
 
                 break;
             case R.id.video3box:
+            case R.id.audiostop3:
                 if(currentMediaPlaying!=null) {
                     currentMediaPlaying.pause();
                 }
@@ -186,6 +212,7 @@ public class Video extends AppCompatActivity implements SurfaceHolder.Callback, 
 
                 break;
             case R.id.video4box:
+            case R.id.audiostop4:
                 if(currentMediaPlaying!=null) {
                     currentMediaPlaying.pause();
                 }
@@ -201,6 +228,7 @@ public class Video extends AppCompatActivity implements SurfaceHolder.Callback, 
 
                 break;
             case R.id.video5box:
+            case R.id.audiostop5:
                 if(currentMediaPlaying!=null) {
                     currentMediaPlaying.pause();
                 }
