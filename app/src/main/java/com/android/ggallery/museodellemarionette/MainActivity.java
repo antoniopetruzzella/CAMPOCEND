@@ -14,10 +14,11 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageButton;
 
 
-
-public class MainActivity extends AppCompatActivity  {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener  {
 
 
     private Handler scanHandler = new Handler();
@@ -26,7 +27,8 @@ public class MainActivity extends AppCompatActivity  {
     private int start_interval_ms=5000;
     private int actualRoom=-9999;
     private boolean copertina=false;
-    private Intent primaStanzaIntent,secondaStanzaIntent,terzaStanzaIntent,quartaStanzaIntent;
+    private ImageButton credits;
+    private Intent primaStanzaIntent,secondaStanzaIntent,terzaStanzaIntent,quartaStanzaIntent,palazzobalbiIntent;
     private static final int PERMISSION_REQUEST_COARSE_LOCATION = 1;
     private static final int PERMISSION_REQUEST_FINE_LOCATION = 1;
 
@@ -36,6 +38,8 @@ public class MainActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ImageButton credits=(ImageButton)findViewById(R.id.credits);
+        credits.setOnClickListener(this);
         requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, PERMISSION_REQUEST_COARSE_LOCATION);
         Global global=(Global)getApplicationContext();
         global.setInStaticActivity(false);
@@ -84,6 +88,8 @@ public class MainActivity extends AppCompatActivity  {
         secondaStanzaIntent=new Intent(this, SecondaStanza.class);
         terzaStanzaIntent=new Intent(this, terza_stanza.class);
         quartaStanzaIntent=new Intent(this, QuartaStanza.class);
+        palazzobalbiIntent=new Intent(this, PalazzoBalbi.class);
+
 
     }
 
@@ -151,5 +157,18 @@ public class MainActivity extends AppCompatActivity  {
                                 PersistableBundle persistentState){
 
 
+    }
+
+    @Override
+    public  void onClick(View view) {
+
+        switch (view.getId()) {
+
+            case R.id.credits:
+                palazzobalbiIntent.putExtra("indirizzo","credits.html");
+                startActivity(palazzobalbiIntent);
+                break;
+
+        }
     }
 }

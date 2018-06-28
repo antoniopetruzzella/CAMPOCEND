@@ -25,6 +25,15 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="32dp" />
 
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/credits"
+        android:src="@drawable/credits"
+        android:background="@null"
+        android:layout_marginLeft="600px"
+        android:layout_marginTop="100px" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

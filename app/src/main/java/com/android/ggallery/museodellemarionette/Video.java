@@ -1,5 +1,6 @@
 package com.android.ggallery.museodellemarionette;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.media.MediaPlayer;
@@ -14,6 +15,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Video extends AppCompatActivity implements SurfaceHolder.Callback, View.OnClickListener{
 
@@ -77,6 +79,14 @@ public class Video extends AppCompatActivity implements SurfaceHolder.Callback, 
         ascoltaaudio.setTypeface(type);
         Global global=(Global)getApplicationContext();
         global.setInStaticActivity(true);
+
+        Context context = getApplicationContext();
+        CharSequence text = "Usa il tasto back del tablet per tornare alla stanza";
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+
 
         handler.post(runnable);
     }
